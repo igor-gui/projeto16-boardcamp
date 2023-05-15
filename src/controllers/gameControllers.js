@@ -20,7 +20,7 @@ export async function postGame(req, res) {
             `,
             [body.name, body.stockTotal, body.pricePerDay]
         );
-        return res.status(201).send("Jogo inserido com sucesso")
+        return res.status(201).send()
     } catch (error) {
         console.log(err.message);
         res.send(err.message);
