@@ -11,7 +11,7 @@ export async function getGames(req, res) {
 }
 
 export async function postGame(req, res) {
-    const { body } = res.locals;
+    const { body } = req;
     try {
         await db.query(
             `
@@ -21,7 +21,7 @@ export async function postGame(req, res) {
             [body.name, body.stockTotal, body.pricePerDay]
         );
         return res.status(201).send()
-    } catch (error) {
+    } catch (err) {
         console.log(err.message);
         res.send(err.message);
     }

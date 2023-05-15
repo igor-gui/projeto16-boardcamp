@@ -3,8 +3,8 @@ import { db } from "../database/database.connection.js";
 export default async function checkGame(req, res, next) {
   const { name } = req.body;
   try {
-    const result = await db.query('SELECT * FROM games WHERE name = $1', [name]);
-    
+    const result = await db.query('SELECT * FROM games WHERE name= $1', [name]);
+    console.log(result)
     if (result.rows.length > 0) return res.status(409).send("JOGO JÁ CADASTRADO");
   } catch (error) {
     console.error(error.message);
