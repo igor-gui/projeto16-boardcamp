@@ -3,7 +3,7 @@ import Joi from 'joi';
 const customerSchema = Joi.object({
   name: Joi.string().required(),
   phone: Joi.number().required(),
-  cpf: Joi.number().length(11).required(),
+  cpf: Joi.number().required(),
   birthday: Joi.date().required(),
 });
 
